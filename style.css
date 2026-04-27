@@ -1,0 +1,460 @@
+/* =========================
+   VARIABLES DE MARCA
+========================= */
+
+:root {
+  --color-bg: #F4EFEA;
+  --color-dark: #1E1E1E;
+  --color-primary: #5A3E2B;
+  --color-accent: #C94A2F;
+  --color-secondary: #3E6F58;
+  --color-light: #FFFFFF;
+}
+
+/* =========================
+   RESET
+========================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: var(--color-bg);
+  color: var(--color-dark);
+  overflow-x: hidden;
+}
+
+/* =========================
+   LOADER
+========================= */
+
+.loader {
+  position: fixed;
+  inset: 0;
+  background: var(--color-dark);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+.loader-logo {
+  width: 125px;
+  opacity: 0;
+  transform: scale(0.9);
+  animation: logoReveal 1.5s ease forwards;
+}
+
+@keyframes logoReveal {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+  position: fixed;
+  width: 100%;
+  padding: 20px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.4s ease;
+  z-index: 100;
+  background: transparent;
+}
+
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  letter-spacing: 4px;
+  font-weight: 600;
+  color: var(--color-light);
+  position: relative;
+}
+
+.logo::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 2px;
+  background: var(--color-accent);
+  margin-top: 6px;
+  transition: width 0.3s ease;
+}
+
+.logo:hover::after {
+  width: 70px;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: var(--color-bg);
+  margin-left: 30px;
+  transition: color 0.3s ease;
+  font-weight: 500;
+}
+
+.navbar a:hover {
+  color: var(--color-accent);
+}
+
+.navbar.scrolled {
+  background: rgba(30, 30, 30, 0.9);
+  backdrop-filter: blur(10px);
+}
+
+.navbar.scrolled a,
+.navbar.scrolled .logo {
+  color: var(--color-light);
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.parallax-bg {
+  position: absolute;
+  inset: 0;
+  background: url("img/hero.jpg") center/cover no-repeat;
+  z-index: 1;
+  will-change: transform;
+}
+
+.parallax-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:  rgba(0,0,0,0.45)
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 20px;
+  animation: fadeUp 1.2s ease forwards;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 4rem;
+  letter-spacing: 3px;
+  font-weight: 600;
+  color: var(--color-light);
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: var(--color-light);
+}
+
+/* Estado inicial: oculto */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* Cuando el JS añade .active: aparece */
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   STORY
+========================= */
+
+.story {
+  padding: 90px 8%;
+  text-align: center;
+}
+
+.story-container {
+  max-width: 750px;
+  margin: auto;
+}
+
+.story h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.8rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: 40px;
+}
+
+.story p {
+  font-size: 1.15rem;
+  line-height: 1.9;
+  margin-bottom: 25px;
+  color: var(--color-dark);
+}
+
+/* =========================
+   SPLIT SECTION
+========================= */
+
+.split-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 90vh;
+}
+
+.split-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(60px, 8vw, 120px);
+}
+
+.kicker {
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  margin-bottom: 30px;
+}
+
+.split-text h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(42px, 4.5vw, 70px);
+  font-weight: 700;
+  line-height: 1.05;
+  color: var(--color-dark);
+  margin-bottom: 25px;
+}
+
+.split-text h2 em {
+  color: var(--color-primary);
+}
+
+.split-text p {
+  font-size: 15px;
+  line-height: 1.9;
+  color: var(--color-primary);
+  max-width: 380px;
+  margin-bottom: 40px;
+}
+
+.split-btn {
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--color-dark);
+  text-decoration: none;
+  position: relative;
+  width: fit-content;
+}
+
+.split-btn::after {
+  content: "";
+  display: block;
+  width: 45px;
+  height: 1px;
+  background: var(--color-accent);
+  margin-top: 8px;
+  transition: width 0.3s ease;
+}
+
+.split-btn:hover {
+  color: var(--color-accent);
+}
+
+.split-btn:hover::after {
+  width: 85px;
+}
+
+.split-image {
+  background: url("img/split-section.jpg") center/cover no-repeat;
+  filter: brightness(0.95) contrast(1.05) saturate(0.9);
+  transition: transform 1s ease;
+  position: relative;
+}
+
+.split-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to left,
+    rgba(90,62,43,0.25),
+    transparent
+  );
+}
+
+.split-image:hover {
+  transform: scale(1.03);
+}
+
+/* =========================
+   COLLECTION
+========================= */
+
+.image-strip-section{
+  position: relative;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  overflow: hidden;
+  padding: 80px 0;
+}
+
+/* contenedor que se mueve */
+.image-strip{
+  display: flex;
+  gap: 30px;
+  width: max-content;
+  animation: scrollImages 45s linear infinite;
+}
+
+/* imágenes */
+.image-strip img{
+  height: 420px;
+  width: auto;
+  object-fit: cover;
+  border-radius: 6px;
+  transition: transform .4s ease;
+}
+
+.image-strip img:hover{
+  transform: scale(1.05);
+}
+
+/* animación horizontal */
+@keyframes scrollImages{
+  from{
+    transform: translateX(0);
+  }
+  to{
+    transform: translateX(-50%);
+  }
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 992px) {
+  .split-section {
+    grid-template-columns: 1fr;
+  }
+
+  .split-image {
+    min-height: 60vh;
+    order: -1;
+  }
+
+  .collection-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .collection-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .navbar {
+    padding: 15px 30px;
+  }
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer{
+  background: var(--color-dark);
+  color: var(--color-light);
+  padding: 80px 10%;
+}
+
+.footer-container{
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:40px;
+}
+
+.footer-brand{
+  max-width:320px;
+}
+
+.footer-links h4{
+  margin-bottom:15px;
+  font-weight:500;
+}
+
+.footer-links a{
+  display:block;
+  color:var(--color-light);
+  text-decoration:none;
+  margin-bottom:8px;
+  opacity:.8;
+}
+
+.footer-links a:hover{
+  opacity:1;
+}
+
+.footer-bottom{
+  margin-top:60px;
+  text-align:center;
+  font-size:14px;
+  opacity:.6;
+}
+
+.footer-logo{
+  display:flex;
+  align-items:center;
+  gap:12px;
+
+}
+
+.footer-logo img{
+  width: 35px;
+  height:auto;
+}
+
+.footer-logo span{
+  font-family:'Playfair Display', serif;
+  font-size:28px;
+  margin-bottom:15px;
+  letter-spacing: 4px;
+}
+

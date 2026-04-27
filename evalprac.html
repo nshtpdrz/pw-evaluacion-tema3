@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>XOCHIQUE — Mini E-commerce</title>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome para iconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Estilos del proyecto (marca) -->
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- Estilos específicos del e-commerce -->
+  <link rel="stylesheet" href="evalprac.css">
+</head>
+<body>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav class="navbar" id="navbar">
+    <div class="logo">
+      <a href="#inicio">XOCHIQUE</a>
+    </div>
+    
+    <!-- Menú hamburguesa móvil -->
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    
+    <!-- Enlaces de navegación -->
+    <div class="nav-links" id="navLinks">
+      <a href="#inicio" class="nav-link active">Inicio</a>
+      <a href="#productos" class="nav-link">Colección</a>
+      <a href="#nosotros" class="nav-link">Nosotros</a>
+      <a href="#contacto" class="nav-link">Contacto</a>
+      <a href="#carrito-section" class="nav-link cart-link">
+        <i class="fas fa-shopping-bag"></i>
+        <span class="cart-count" id="cartCount">0</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- ========== SHOP HERO ========== -->
+  <header class="shop-hero" id="inicio">
+    <div class="shop-hero-overlay"></div>
+    <div class="shop-hero-content">
+      <span class="kicker">Colección Primavera 2025</span>
+      <h1>Nuestra <em>Tienda</em></h1>
+      <p>Piezas únicas de diseño mexicano contemporáneo</p>
+      <a href="#productos" class="hero-cta">Explorar Colección</a>
+    </div>
+  </header>
+
+  <!-- ========== MAIN CONTAINER ========== -->
+  <main class="container-shop" id="productos">
+
+    <!-- Título de sección -->
+    <section class="section-title reveal">
+      <span class="kicker">Catálogo</span>
+      <h2>Piezas Destacadas</h2>
+      <p class="section-subtitle">Cada prenda es una obra de arte textil mexicana</p>
+    </section>
+
+    <!-- Grid de productos (generado dinámicamente) -->
+    <div class="productos-grid" id="productosGrid"></div>
+
+    <hr class="divider">
+
+    <!-- ========== CARRITO DE COMPRAS ========== -->
+    <section class="carrito-section reveal" id="carrito-section">
+      <div class="carrito-header">
+        <span class="kicker">Resumen</span>
+        <h2>Carrito de Compras</h2>
+      </div>
+      <div class="carrito-body">
+        <ul id="carrito" class="carrito-lista"></ul>
+        <div class="carrito-footer">
+          <div class="total-display">
+            <span>Total</span>
+            <strong>$<span id="total">0.00</span> MXN</strong>
+          </div>
+          <div class="carrito-actions">
+            <button class="btn-vaciar" onclick="vaciarCarrito()">
+              <i class="fas fa-trash-alt"></i> Vaciar Carrito
+            </button>
+            <button class="btn-comprar" onclick="comprar()">
+              <i class="fas fa-credit-card"></i> Finalizar Compra
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SECCIÓN NOSOTROS ========== -->
+    <section class="story reveal" id="nosotros">
+      <div class="story-container">
+        <span class="kicker">Nuestra Historia</span>
+        <h2>El Arte de Vestir</h2>
+        <p>
+          XOCHIQUE nace del amor por la tradición textil mexicana y la visión contemporánea 
+          del diseño de moda. Cada prenda es confeccionada por artesanos que heredaron técnicas 
+          milenarias, fusionadas con cortes modernos que realzan la silueta femenina.
+        </p>
+        <p>
+          Nuestra colección Primavera 2025 celebra la floración, el renacer y la fuerza 
+          de la mujer mexicana. Utilizamos fibras naturales, tintes orgánicos y procesos 
+          sostenibles que respetan el medio ambiente y honran nuestras raíces.
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer" id="contacto">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <span>XOCHIQUE</span>
+        </div>
+        <p>Diseño de moda mexicano contemporáneo. Cada prenda cuenta una historia.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Colección</h4>
+        <a href="#productos">Vestidos</a>
+        <a href="#productos">Blusas</a>
+        <a href="#productos">Accesorios</a>
+      </div>
+      <div class="footer-links">
+        <h4>Contacto</h4>
+        <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+        <a href="#"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+        <a href="#"><i class="far fa-envelope"></i> Email</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2025 XOCHIQUE — Todos los derechos reservados
+    </div>
+  </footer>
+
+  <!-- ========== SCRIPTS ========== -->
+  <script src="evalprac.js"></script>
+</body>
+</html>
